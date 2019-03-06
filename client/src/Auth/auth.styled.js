@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.form`
   height: 200px;
   input{
     border: none;

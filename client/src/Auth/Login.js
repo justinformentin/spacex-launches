@@ -58,6 +58,7 @@ class Login extends Component {
       <Container>
         <Wrapper>
           <InputWrapper>
+            <form onSubmit={this.submitUser}>
               <input
                 type="text"
                 placeholder="Email"
@@ -87,10 +88,10 @@ class Login extends Component {
                 {error.password}
                 {error.passwordIncorrect}
               </ErrorText>
-
+              <Button type="submit">Login</Button>
+            </form>
           </InputWrapper>
           <ButtonWrapper>
-            <Button type="submit" onClick={this.submitUser}>Login</Button>
             <Link to="/signup">Create account</Link>
             <Link to="/">Home</Link>
           </ButtonWrapper>

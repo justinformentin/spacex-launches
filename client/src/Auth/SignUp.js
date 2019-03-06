@@ -57,43 +57,45 @@ class SignUp extends Component {
       <Container>
         <Wrapper>
           <InputWrapper>
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleSign}
-              error={error.name}
-              className={classnames("", { invalid: error.name })}/>
-            <br />
-            <ErrorText>{error.name}</ErrorText>
+            <form onSubmit={this.sendSign}>
+              <input
+                type="text"
+                placeholder="Name"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleSign}
+                error={error.name}
+                className={classnames("", { invalid: error.name })}/>
+              <br />
+              <ErrorText>{error.name}</ErrorText>
 
-            <input
-              type="text"
-              placeholder="Email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleSign}
-              error={error.email}
-              className={classnames("", { invalid: error.email })}
-             />
-             <br />
-             <ErrorText>{error.email}</ErrorText>
+              <input
+                type="text"
+                placeholder="Email"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleSign}
+                error={error.email}
+                className={classnames("", { invalid: error.email })}
+              />
+              <br />
+              <ErrorText>{error.email}</ErrorText>
 
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleSign}
-              error={error.password}
-              className={classnames("", { invalid: error.password })}
-            />
-            <br />
-            <ErrorText>{error.password}</ErrorText>
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleSign}
+                error={error.password}
+                className={classnames("", { invalid: error.password })}
+              />
+              <br />
+              <ErrorText>{error.password}</ErrorText>
+              <Button type="submit">Sign Up</Button>
+            </form>
             </InputWrapper>
             <ButtonWrapper>
-              <Button type="submit" onClick={this.sendSign}>Sign Up</Button>
               <Link to="/Login">Login</Link>
               <Link to="/">Home</Link>
             </ButtonWrapper>
