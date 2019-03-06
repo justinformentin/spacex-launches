@@ -16,7 +16,7 @@ const Saved  = ({ launch }) => {
       />
       <ButtonWrapper>
           <Button>
-            <ButtonLink to={`/launch/${launch.flight_number}`}>More Info</ButtonLink>
+            <ButtonLink to={`/launch/${launch.flightNumber}`}>More Info</ButtonLink>
         </Button>
       </ButtonWrapper>
     </Wrapper>
