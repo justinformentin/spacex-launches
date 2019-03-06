@@ -25,7 +25,7 @@ app.use('/api/launches', launchRoutes);
 app.use('/api/auth', userRoutes);
 
 app.use(passport.initialize());
-require("./config/passport")(passport);
+require("./config/Passport")(passport);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
