@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^4.2.1",
     "circular-json": "^0.5.9",
     "classnames": "^2.2.6",
     "date-fns": "^1.30.1",
