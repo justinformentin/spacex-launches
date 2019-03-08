@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import galaxy from '../assets/galaxy.jpg'
+import galaxy from '../assets/galaxy.jpg';
 
 export const Container = styled.div`
   background: url(${galaxy}) no-repeat center;
@@ -19,13 +19,13 @@ export const Wrapper = styled.div`
   text-align: center;
   width: 25%;
   @media only screen and (max-width: 1080px) {
-    width: 35%
+    width: 35%;
   }
   @media only screen and (max-width: 768px) {
-    width: 50%
+    width: 50%;
   }
   @media only screen and (max-width: 480px) {
-    width: 70%
+    width: 70%;
   }
 `;
 
@@ -39,20 +39,20 @@ export const InputWrapper = styled.form`
 `;
 
 export const ButtonWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Button = styled.button`
-    margin: 1rem auto;
-    width: 50%;
-    padding: 0.5rem;
-    background-color: rgba(248, 20, 20, 0.7);
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
+  margin: 1rem auto;
+  width: 50%;
+  padding: 0.5rem;
+  background-color: rgba(248, 20, 20, 0.7);
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
 `;
 
 export const ErrorText = styled.span`
-    color: red;
+  color: red;
 `;

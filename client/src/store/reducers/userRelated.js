@@ -1,17 +1,17 @@
 import { IS_LOGGED } from '../actions/actionTypes';
 
 const initialState = {
-  isLogged:  false,
-  currentUserData: []
-}
+  isLogged: false,
+  currentUserData: [],
+};
 
 export const userRelated = (state = initialState, action) => {
-  switch(action.type){
+  switch (action.type) {
     case IS_LOGGED:
-      return{
-        isLogged: action.logado
-      }
+      return {
+        isLogged: action.logged,
+      };
     default:
-      return state
+      return state;
   }
-}
+};

@@ -1,4 +1,4 @@
-const mongoose = require ("mongoose");
+const mongoose = require('mongoose');
 // Schema constructor
 const Schema = mongoose.Schema;
 
@@ -6,31 +6,31 @@ const Schema = mongoose.Schema;
 const LaunchSchema = new Schema({
   badge: {
     type: String,
-    require: false
+    require: false,
   },
   missionName: {
     type: String,
-    require: true
+    require: true,
   },
   rocketName: {
     type: String,
-    require: true
+    require: true,
   },
   flightNumber: {
     type: Number,
-    require:true
+    require: true,
   },
   rocketType: {
     type: String,
-    require: true
+    require: true,
   },
   launchDate: {
     type: String,
-    require: true
+    require: true,
   },
   photo: {
     type: String,
-    require: false
+    require: false,
   },
 });
 

@@ -15,16 +15,16 @@ const GlobalStyle = createGlobalStyle`
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   }
-`
+`;
 
-const Layout = ({children}) => {
-  return(
+const Layout = ({ children }) => {
+  return (
     <Fragment>
       <GlobalStyle />
       <Header />
       {children}
     </Fragment>
-  )
-}
+  );
+};
 
 export default Layout;

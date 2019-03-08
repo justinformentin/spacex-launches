@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   margin: 5% auto;
   text-align: center;
   border-radius: 7px;
-  box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.3);
   background: #d1d4da;
   padding: 1.5rem 0.5rem;
   margin: 0.5rem;

@@ -1,10 +1,10 @@
-import React from 'react'
-import Item from '../Shared/Item'
+import React from 'react';
+import Item from '../Shared/Item';
 import Button from '../Layout/Button';
 import { Wrapper, ButtonWrapper, ButtonLink } from '../Shared/launch.style';
 
-const Saved  = ({ launch }) => {
-  return(
+const Saved = ({ launch }) => {
+  return (
     <Wrapper>
       <Item
         badge={launch.badge}
@@ -15,12 +15,14 @@ const Saved  = ({ launch }) => {
         date={launch.launchDate}
       />
       <ButtonWrapper>
-          <Button>
-            <ButtonLink to={`/launch/${launch.flightNumber}`}>More Info</ButtonLink>
+        <Button>
+          <ButtonLink to={`/launch/${launch.flightNumber}`}>
+            More Info
+          </ButtonLink>
         </Button>
       </ButtonWrapper>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Saved
+export default Saved;

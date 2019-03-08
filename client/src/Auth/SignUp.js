@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import { Link , withRouter} from 'react-router-dom';
-import PropTypes from "prop-types";
+import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { registerUser } from '../store/actions/actions';
 import classnames from 'classnames';
-import {Container, Wrapper, InputWrapper, ButtonWrapper, Button, ErrorText} from './auth.styled.js';
+import {
+  Container,
+  Wrapper,
+  InputWrapper,
+  ButtonWrapper,
+  Button,
+  ErrorText,
+} from './auth.styled.js';
 
 class SignUp extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -16,28 +22,28 @@ class SignUp extends Component {
       email: '',
       password: '',
       error: {},
-    }
+    };
   }
 
   componentDidMount = () => {
-    if(this.props.auth.isAuthenticated){
-      this.props.history.push('/')
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/');
     }
-  }
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.error) {
       this.setState({
-        error: nextProps.error
+        error: nextProps.error,
       });
     }
   }
 
   handleSign = e => {
     this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   sendSign = e => {
     e.preventDefault();
@@ -46,13 +52,13 @@ class SignUp extends Component {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-    }
+    };
 
-    this.props.registerUser(userData, this.props.history)
-  }
+    this.props.registerUser(userData, this.props.history);
+  };
 
   render() {
-    const { error } = this.state
+    const { error } = this.state;
     return (
       <Container>
         <Wrapper>
@@ -65,7 +71,8 @@ class SignUp extends Component {
                 value={this.state.name}
                 onChange={this.handleSign}
                 error={error.name}
-                className={classnames("", { invalid: error.name })}/>
+                className={classnames('', { invalid: error.name })}
+              />
               <br />
               <ErrorText>{error.name}</ErrorText>
 
@@ -76,7 +83,7 @@ class SignUp extends Component {
                 value={this.state.email}
                 onChange={this.handleSign}
                 error={error.email}
-                className={classnames("", { invalid: error.email })}
+                className={classnames('', { invalid: error.email })}
               />
               <br />
               <ErrorText>{error.email}</ErrorText>
@@ -88,33 +95,35 @@ class SignUp extends Component {
                 value={this.state.password}
                 onChange={this.handleSign}
                 error={error.password}
-                className={classnames("", { invalid: error.password })}
+                className={classnames('', { invalid: error.password })}
               />
               <br />
               <ErrorText>{error.password}</ErrorText>
               <Button type="submit">Sign Up</Button>
             </form>
-            </InputWrapper>
-            <ButtonWrapper>
-              <Link to="/Login">Login</Link>
-              <Link to="/">Home</Link>
-            </ButtonWrapper>
+          </InputWrapper>
+          <ButtonWrapper>
+            <Link to="/Login">Login</Link>
+            <Link to="/">Home</Link>
+          </ButtonWrapper>
         </Wrapper>
       </Container>
-    )
+    );
   }
 }
 
 SignUp.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  error: PropTypes.object.isRequired
+  error: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
   auth: state.userAuth,
-  error: state.errors
-})
+  error: state.errors,
+});
 
-
-export default connect(mapStateToProps, { registerUser })(withRouter(SignUp))
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(SignUp));

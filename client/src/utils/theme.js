@@ -1,14 +1,14 @@
 const button = {
   default: {
-    background: '#666'
+    background: '#666',
   },
   primary: {
-    background: '#056a05'
+    background: '#056a05',
   },
   remove: {
-    background: '#aa2525'
-  }
-}
+    background: '#aa2525',
+  },
+};
 
 const theme = {
   button,
@@ -19,6 +19,6 @@ const theme = {
     m: '900px',
     l: '1200px',
   },
-}
+};
 
 export default theme;

@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import {Loader} from '../utils/loader';
+import { Loader } from '../utils/loader';
 import Layout from '../Layout';
 import SavedSingle from './SavedSingle';
 import { Container } from '../Shared/launch.style';
@@ -18,56 +18,51 @@ const RemoveButton = styled.div`
   justify-content: center;
 `;
 
-
 class SavedContainer extends Component {
   state = {
     savedLaunches: [],
     isReady: false,
-  }
+  };
 
   componentDidMount = () => {
     this.fetchSaved();
-  }
+  };
 
   fetchSaved = () => {
-    axios.get('/api/launches/getsaved')
-    .then(response => {
+    axios.get('/api/launches/getsaved').then(response => {
       this.setState({
         savedLaunches: response.data,
-        isReady: !this.state.isReady
+        isReady: !this.state.isReady,
       });
-    })
-  }
+    });
+  };
 
-  deleteLaunch = (id) => {
-    axios.delete(`/api/launches/delete`)
-      .then(window.location.reload(true))
-  }
+  deleteLaunch = id => {
+    axios.delete(`/api/launches/delete`).then(window.location.reload(true));
+  };
 
-  render(){
-    const {savedLaunches} = this.state
-    return(
+  render() {
+    const { savedLaunches } = this.state;
+    return (
       <Layout>
         <RemoveButton>
-          <Button type="remove" onClick={this.deleteLaunch}>Remove All</Button>
+          <Button type="remove" onClick={this.deleteLaunch}>
+            Remove All
+          </Button>
         </RemoveButton>
-        {
-          this.state.isReady ?
-            <Container>
-              {savedLaunches.length > 0 ?
-                savedLaunches.map((launch, i) => (
-                  <SavedSingle
-                  key={i}
-                  launch={launch}
-                  />
-                ))
-                :
+        {this.state.isReady ? (
+          <Container>
+            {savedLaunches.length > 0 ? (
+              savedLaunches.map((launch, i) => (
+                <SavedSingle key={i} launch={launch} />
+              ))
+            ) : (
               <Empty>No launches saved.</Empty>
-              }
+            )}
           </Container>
-          :
+        ) : (
           <Loader />
-        }
+        )}
       </Layout>
     );
   }

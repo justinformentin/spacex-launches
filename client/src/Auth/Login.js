@@ -1,56 +1,62 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { loginUser } from "../store/actions/actions";
-import classnames from "classnames";
-import {Container, Wrapper, InputWrapper, ButtonWrapper, Button, ErrorText} from './auth.styled.js';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { loginUser } from '../store/actions/actions';
+import classnames from 'classnames';
+import {
+  Container,
+  Wrapper,
+  InputWrapper,
+  ButtonWrapper,
+  Button,
+  ErrorText,
+} from './auth.styled.js';
 
 class Login extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
       email: '',
       password: '',
-      error: {}
-    }
+      error: {},
+    };
   }
 
   componentDidMount = () => {
-    if(this.props.auth.isAuthenticated){
-      this.props.history.push('/')
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/');
     }
-  }
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/");
+      this.props.history.push('/');
     }
     if (nextProps.error) {
       this.setState({
-        error: nextProps.error
+        error: nextProps.error,
       });
     }
   }
 
   handleLogin = e => {
     this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   submitUser = e => {
     e.preventDefault();
 
     const userData = {
-        email: this.state.email,
-        password: this.state.password,
-    }
+      email: this.state.email,
+      password: this.state.password,
+    };
 
     this.props.loginUser(userData);
-  }
+  };
 
   render() {
     const { error } = this.state;
@@ -66,7 +72,9 @@ class Login extends Component {
                 value={this.state.email}
                 onChange={this.handleLogin}
                 error={error.email}
-                className={classnames("", {invalid: error.email || error.emailNotFound})}
+                className={classnames('', {
+                  invalid: error.email || error.emailNotFound,
+                })}
               />
               <br />
               <ErrorText>
@@ -81,7 +89,9 @@ class Login extends Component {
                 value={this.state.password}
                 onChange={this.handleLogin}
                 error={error.password}
-                className={classnames("", {invalid: error.password || error.passwordIncorrect })}
+                className={classnames('', {
+                  invalid: error.password || error.passwordIncorrect,
+                })}
               />
 
               <ErrorText>
@@ -97,19 +107,22 @@ class Login extends Component {
           </ButtonWrapper>
         </Wrapper>
       </Container>
-    )
+    );
   }
 }
 
 Login.propTypes = {
-    loginUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    error: PropTypes.object.isRequired
-  };
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  error: PropTypes.object.isRequired,
+};
 
-  const mapStateToProps = state => ({
-    auth: state.userAuth,
-    error: state.errors
+const mapStateToProps = state => ({
+  auth: state.userAuth,
+  error: state.errors,
 });
 
-export default connect(mapStateToProps, { loginUser })(Login)
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Login);

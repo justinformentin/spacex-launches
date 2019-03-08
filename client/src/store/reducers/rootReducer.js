@@ -6,7 +6,7 @@ import errors from './errorReducer';
 const rootReducer = combineReducers({
   user: userRelated,
   userAuth: authUser,
-  errors
-})
+  errors,
+});
 
 export default rootReducer;

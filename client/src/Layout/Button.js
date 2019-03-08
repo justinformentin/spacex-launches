@@ -13,17 +13,17 @@ const Button = styled.button`
   user-select: none;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   padding: 0.5rem;
   width: 40%;
   height: 10%;
   cursor: pointer;
   text-decoration: none;
   transition: all ease 0.3s;
-  box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
   &:hover {
-      transform: translateY(-2px);
-      box-shadow: 4px 6px 12px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.3);
   }
 `;
 

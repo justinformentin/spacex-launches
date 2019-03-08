@@ -9,24 +9,22 @@ const TextWrap = styled.div`
 `;
 
 const LaunchItem = ({ badge, name, rocket, flight, type, date }) => {
-
   return (
     <React.Fragment>
-    {
-      badge
-      ? <img src={badge} height="125px" alt="mission_patch"/>
-      : <img src={noBadge} height="125px" alt="No Badge"/>
-    }
+      {badge ? (
+        <img src={badge} height="125px" alt="mission_patch" />
+      ) : (
+        <img src={noBadge} height="125px" alt="No Badge" />
+      )}
       <TextWrap>
         <h2>{name}</h2>
         <p>Rocket Name: {rocket}</p>
         <p>Flight Number: {flight}</p>
         <p>Rocket Type: {type}</p>
         <p>Launch Date: {date}</p>
-
       </TextWrap>
     </React.Fragment>
-  )
+  );
 };
 
 export default LaunchItem;

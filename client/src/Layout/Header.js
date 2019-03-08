@@ -7,7 +7,7 @@ import { logoutUser } from '../store/actions/actions';
 const Container = styled.div`
   background: #d1d4da;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 `;
 
 const Wrapper = styled.div`
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   @media only screen and (max-width: 1020px) {
     width: 50%;
-    }
+  }
   @media only screen and (max-width: 768px) {
     width: 75%;
   }
@@ -47,11 +47,10 @@ const StyledLink = styled(Link)`
 `;
 
 class Header extends Component {
-
   logoutUser = e => {
     e.preventDefault();
     this.props.logoutUser();
-  }
+  };
 
   render() {
     return (
@@ -61,24 +60,25 @@ class Header extends Component {
           <LinkWrapper className="">
             <StyledLink to="/">Home</StyledLink>
             <StyledLink to="/saved">Saved</StyledLink>
-            {
-              this.props.auth.isAuthenticated
-              ? <StyledLink to="/" onClick={this.logoutUser}>
+            {this.props.auth.isAuthenticated ? (
+              <StyledLink to="/" onClick={this.logoutUser}>
                 Logout
               </StyledLink>
-              : <StyledLink to="/login">
-                Login
-              </StyledLink>
-            }
+            ) : (
+              <StyledLink to="/login">Login</StyledLink>
+            )}
           </LinkWrapper>
         </Wrapper>
       </Container>
-    )
+    );
   }
 }
 
 const mapStateToProps = store => ({
   auth: store.userAuth,
-})
+});
 
-export default connect(mapStateToProps, { logoutUser })(Header);
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Header);
